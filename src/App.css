@@ -1,0 +1,97 @@
+/* src/App.css */
+
+/* --- Layout Container (Replaces AuthLayout classes in App.jsx) --- */
+.auth-layout-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.auth-card {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 12px; /* Soft rounded corners */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Subtle 3D effect */
+    width: 100%;
+    max-width: 400px; /* Max width for a clean form */
+    text-align: center;
+}
+
+/* --- Form Styles --- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-input:focus {
+    border-color: #007bff; /* Blue focus indicator */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+    outline: none;
+}
+
+/* --- Primary Button (Login/Register Submit) --- */
+.btn-primary {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+    /* Specific colors */
+    background-color: #28a745; /* Green for login/success */
+    color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+.btn-primary:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+/* --- Secondary Button (Switch to Register/Login) --- */
+.btn-secondary {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    border: 1px solid #007bff; /* Blue border */
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #007bff;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #e9f5ff; /* Light blue hover */
+    color: #0056b3;
+}
+
+/* --- Message and Error Styles --- */
+.error-message {
+    color: #dc3545; /* Red for errors */
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.success-message {
+    color: #28a745; /* Green for success */
+    margin-top: 15px;
+    font-size: 14px;
+}
