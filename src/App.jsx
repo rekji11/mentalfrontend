@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './components/Login';
 import Register from './components/Register'; 
-import Dashboard from './components/Dashboard';
+import AppLayout from './components/AppLayout';
 
 
 const AuthLayout = ({ children }) => (
@@ -14,53 +14,49 @@ const AuthLayout = ({ children }) => (
 );
 
 function App() {
-  const [token, setToken] = useState(localStorage.getItem('accessToken') || null);
-  
-  const handleLogin = (newToken) => {
-    setToken(newToken);
-    localStorage.setItem('accessToken', newToken);
-  };
+    const [token, setToken] = useState(localStorage.getItem('accessToken') || null);
+    
+    const handleLogin = (newToken) => {
+        setToken(newToken);
+        localStorage.setItem('accessToken', newToken);
+    };
 
-  const handleLogout = () => {
-    setToken(null);
-    localStorage.removeItem('accessToken');
-  };
+    const handleLogout = () => {
+        setToken(null);
+        localStorage.removeItem('accessToken');
+    };
 
-  return (
-    <Router>
-      <Routes>
-        {/* Protected Dashboard Route */}
-        <Route path="/dashboard" element={
-          token ? (
-            <Dashboard token={token} onLogout={handleLogout} />
-          ) : (
-            <Navigate to="/login" replace />
-          )
-        }/>
-        
-        {/* Login Route */}
-        <Route path="/login" element={
-          token ? (
-            <Navigate to="/dashboard" replace />
-          ) : (
-            <AuthLayout>
-                <Login onLoginSuccess={handleLogin} />
-            </AuthLayout>
-          )
-        }/>
-        
-        {/* Registration Route */}
-        <Route path="/register" element={
-            <AuthLayout>
-                <Register />
-            </AuthLayout>
-        }/>
-        
-        {/* Default route redirects to login */}
-        <Route path="*" element={<Navigate to="/login" replace />} />
-      </Routes>
-    </Router>
-  );
+    return (
+        <Router>
+            <Routes>
+                <Route path="/dashboard" element={
+                    token ? (
+                        <AppLayout token={token} onLogout={handleLogout} /> 
+                    ) : (
+                        <Navigate to="/login" replace />
+                    )
+                }/>
+                
+                <Route path="/login" element={
+                    token ? (
+                        <Navigate to="/dashboard" replace />
+                    ) : (
+                        <AuthLayout>
+                            <Login onLoginSuccess={handleLogin} />
+                        </AuthLayout>
+                    )
+                }/>
+                
+                <Route path="/register" element={
+                    <AuthLayout>
+                        <Register />
+                    </AuthLayout>
+                }/>
+                
+                <Route path="*" element={<Navigate to="/login" replace />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

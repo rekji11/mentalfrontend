@@ -1,8 +1,6 @@
-// src/components/Register.js
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { registerUser } from '../api'; // We will create this new API function below
-
+import { registerUser } from '../api'; 
 function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -19,7 +17,7 @@ function Register() {
     setLoading(true);
 
     try {
-      await registerUser(username, email, password); // Call new API function
+      await registerUser(username, email, password); 
       
       setMessage('Registration successful! Redirecting to login...');
       setTimeout(() => {

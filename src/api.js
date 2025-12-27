@@ -29,7 +29,6 @@ export async function fetchProtected(endpoint, method = 'GET', token, body = nul
 }
 
 
-
 export async function createEntry(entryData, token) {
   return await fetchProtected('/tracker/', 'POST', token, entryData);
 }
@@ -53,10 +52,10 @@ export async function deleteEntry(token, entryId) {
     const endpoint = `/tracker/${entryId}`;
     
     const result = await fetchProtected(
-        endpoint,     
-        'DELETE',      
-        token,          
-        null           
+        endpoint,    
+        'DELETE',    
+        token,       
+        null         
     );
 
     if (result === null) {
@@ -65,6 +64,31 @@ export async function deleteEntry(token, entryId) {
     
     throw new Error('Failed to delete entry: Unexpected response.');
 }
+
+/**
+ * @param {string} token 
+ * @param {string} currentPassword 
+ * @param {string} newPassword 
+ * @returns {Promise<void>}
+ */
+export async function updatePassword(token, currentPassword, newPassword) {
+    const body = {
+        current_password: currentPassword,
+        new_password: newPassword,
+    };
+    const result = await fetchProtected(
+        '/users/me/password',
+        'PUT',
+        token,
+        body
+    );
+    if (result === null) {
+        return;
+    }
+    
+    throw new Error('Password update failed due to unexpected response.');
+}
+
 
 
 export async function loginUser(username, password) {
