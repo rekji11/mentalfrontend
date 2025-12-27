@@ -1,16 +1,13 @@
-// src/components/Login.js
 import React, { useState } from 'react';
 import { loginUser } from '../api';
-import { Link } from 'react-router-dom'; // Import Link
+import { Link } from 'react-router-dom'; 
 
 function Login({ onLoginSuccess }) {
-  // ... (keep all your state and handleSubmit logic the same)
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-  // Keep the handleSubmit function exactly as it was before
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -27,7 +24,6 @@ function Login({ onLoginSuccess }) {
     }
   };
 
-  // --- RETURN STATEMENT MODIFIED FOR MODERN DESIGN ---
   return (
     <div className="text-center">
       <h2 className="text-3xl font-bold mb-8 text-gray-800">Welcome! </h2>

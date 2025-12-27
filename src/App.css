@@ -1,24 +1,20 @@
-/* src/App.css */
-
-/* --- Layout Container (Replaces AuthLayout classes in App.jsx) --- */
 .auth-layout-container {
     min-height: 100vh;
     display: flex;
-    align-items: center; /* Center vertically */
-    justify-content: center; /* Center horizontally */
+    align-items: center; 
+    justify-content: center; 
 }
 
 .auth-card {
     background-color: #ffffff;
     padding: 40px;
-    border-radius: 12px; /* Soft rounded corners */
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); /* Subtle 3D effect */
+    border-radius: 12px; 
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1); 
     width: 100%;
-    max-width: 400px; /* Max width for a clean form */
+    max-width: 400px; 
     text-align: center;
 }
 
-/* --- Form Styles --- */
 .form-group {
     margin-bottom: 20px;
 }
@@ -33,12 +29,11 @@
 }
 
 .form-input:focus {
-    border-color: #007bff; /* Blue focus indicator */
+    border-color: #007bff; 
     box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
     outline: none;
 }
 
-/* --- Primary Button (Login/Register Submit) --- */
 .btn-primary {
     width: 100%;
     padding: 12px;
@@ -48,9 +43,7 @@
     font-weight: 600;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    
-    /* Specific colors */
-    background-color: #28a745; /* Green for login/success */
+    background-color: #28a745; 
     color: white;
 }
 
@@ -63,13 +56,12 @@
     cursor: not-allowed;
 }
 
-/* --- Secondary Button (Switch to Register/Login) --- */
 .btn-secondary {
     display: block;
     width: 100%;
     padding: 10px;
     margin-top: 15px;
-    border: 1px solid #007bff; /* Blue border */
+    border: 1px solid #007bff; 
     border-radius: 8px;
     font-size: 15px;
     font-weight: 500;
@@ -79,19 +71,19 @@
 }
 
 .btn-secondary:hover {
-    background-color: #e9f5ff; /* Light blue hover */
+    background-color: #e9f5ff; 
     color: #0056b3;
 }
 
-/* --- Message and Error Styles --- */
+
 .error-message {
-    color: #dc3545; /* Red for errors */
+    color: #dc3545; 
     margin-top: 15px;
     font-size: 14px;
 }
 
 .success-message {
-    color: #28a745; /* Green for success */
+    color: #28a745; 
     margin-top: 15px;
     font-size: 14px;
 }
